@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by: Rick Dennison
+ * Project   : blockchain
+ * Date      : 11/18/2026
+ */
+
+namespace Core;
+
+use App\Config;
+use PDO;
+use PDOException;
+
+abstract class Model
+{
+    /**
+     * Database connection instance
+     * @var PDO|null
+     */
+    protected static ?PDO $db = null;
+
+    /**
+     * Get the PDO database connection
+     *
+     * @return PDO
+     * @throws PDOException
+     */
+    protected static function getDB(): PDO
+    {
+        if (static::$db === null) {
+            $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8mb4';
+            $db = new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
+
+            // Throw an Exception when an error occurs
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+            static::$db = $db;
+        }
+
+        return static::$db;
+    }
+}
