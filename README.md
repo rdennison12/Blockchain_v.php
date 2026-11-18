@@ -7,7 +7,8 @@ documentation, and refactoring to improve code quality and maintainability.
 ## Commits
 
 * Initial commit: Project created
-* Add a brief description of the project and an initial TODO list
+* Added a brief description of the project and an initial TODO list
+* Added a remote repo 
 
 ** My TODO list **
 
