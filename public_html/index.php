@@ -31,7 +31,7 @@ set_exception_handler('Core\Error::exceptionHandler');
 /**
  * Sessions
  */
-// session_start();
+session_start();
 
 /**
  * Routing
@@ -45,12 +45,9 @@ $router->add('{controller}/{action}');
 
 // Dispatch request
 $url = $_SERVER['QUERY_STRING'] ?? '';
-if ($url === '' && isset($_SERVER['REQUEST_URI'])) {
-    $url = trim((string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+if (($url === '' || str_contains(explode('&', $url, 2)[0], '=')) && isset($_SERVER['REQUEST_URI'])) {
+    $url = trim((string)parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 }
 
-try {
-    $router->dispatch($url);
-} catch (Exception $e) {
 
-}
+$router->dispatch($url);

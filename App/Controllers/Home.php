@@ -21,9 +21,13 @@ class Home extends Controller
      */
     public function indexAction(): void
     {
+        $state = $_SESSION['blockchain'] ??= (new Blockchain($this->route_params))->toArray();
+        $blocks = $state['chain'];
+
         $this->render('Home/index.php', [
-            'title'   => 'Home Page',
-            'message' => 'Welcome to your MVC application!'
+            'title' => 'Home Page',
+            'message' => 'Welcome to your MVC application!',
+            'blocks' => $blocks,
         ]);
     }
 }
