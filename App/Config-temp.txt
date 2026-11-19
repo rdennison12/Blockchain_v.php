@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * Database configuration
+ * Add your database name, username, and password.
+ * Then make a copy and save it as "Config.php"
+ */
+
+namespace App;
+
+class Config
+{
+    /**
+     * Database host
+     * @var string
+     */
+    public const DB_HOST = 'localhost';
+
+    /**
+     * Database name
+     * @var string
+     */
+    public const DB_NAME = 'DBName';
+
+    /**
+     * Database user
+     * @var string
+     */
+    public const DB_USER = 'DB_User';
+
+    /**
+     * Database password
+     * @var string
+     */
+    public const DB_PASSWORD = 'DB_Password';
+
+    /**
+     * Show or hide error messages on screen
+     * @var bool
+     */
+    public const SHOW_ERRORS = true;
+}

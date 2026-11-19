@@ -10,6 +10,8 @@
 .idea/
 .junie/
 .vscode/
+/App/Config.php
+
 
 # Tests and caches
 .phpunit.cache/

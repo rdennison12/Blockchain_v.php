@@ -9,6 +9,7 @@ documentation, and refactoring to improve code quality and maintainability.
 * Initial commit: Project created
 * Added a brief description of the project and an initial TODO list
 * Added a remote repo 
+* Removed Config.php from repo and added Config-temp.txt 
 
 ** My TODO list **
 
