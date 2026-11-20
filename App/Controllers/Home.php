@@ -9,6 +9,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use App\Models\Blockchain;
 use Exception;
 
 class Home extends Controller
@@ -21,12 +22,11 @@ class Home extends Controller
      */
     public function indexAction(): void
     {
-        $state = $_SESSION['blockchain'] ??= (new Blockchain($this->route_params))->toArray();
+        $state = $_SESSION['blockchain'] ??= (new Blockchain())->toArray();
         $blocks = $state['chain'];
 
-        $this->render('Home/index.php', [
-            'title' => 'Home Page',
-            'message' => 'Welcome to your MVC application!',
+        $this->render('Home/index.twig', [
+            'title' => 'Blockchain Dashboard',
             'blocks' => $blocks,
         ]);
     }

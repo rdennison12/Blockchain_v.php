@@ -76,13 +76,12 @@ abstract class Controller
      *
      * @param string $view View template relative to App/Views
      * @param array $args Data passed to view and layout
-     * @param string|null $layout Layout template relative to App/Views
      * @return void
      * @throws Exception
      */
-    protected function render(string $view, array $args = [], ?string $layout = 'layouts/base.php'): void
+    protected function render(string $view, array $args = []): void
     {
-        View::render($view, $args, $layout);
+        View::render($view, $args);
     }
 
     /**

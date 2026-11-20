@@ -1,14 +1,13 @@
 # Blockchain in PHP
 
-In this version of Blockchain, I am going to use pure PHP to create both the backend and the user interface. Once I have
-a working prototype, I will introduce Twig templating engine through Composer. I will also be adding extensive testing,
-documentation, and refactoring to improve code quality and maintainability.
+An educational blockchain application with a PHP backend and Twig templates.
 
 ## Setup
 
-Install PHP 8.1 or newer and Composer, then run `composer install` from the project root.
+Install PHP 8.4 or newer and Composer, then run `composer install` from the project root.
 Composer generates the autoloader used by the application and tests. Run the blockchain checks with `composer test`.
 Copy `App/Config-temp.txt` to `App/Config.php` and configure it for your environment.
+Configure your web server's document root as `public_html` and route requests for non-existent files to `index.php` (the included `.htaccess` does this for Apache). Visit `/` for the dashboard; API links return JSON.
 
 ## Blockchain API
 
@@ -34,6 +33,7 @@ This is an unsigned educational ledger, not a secure cryptocurrency: addresses a
 * Deleted Config.php
 * Moving project to Linux for now, working to get Composer installed on Windows
 * Installed Composer on Windows, working out the bugs
+* Installed Composer on Windows
 
 In the folder structure, I named the public folder public_html as that is the standard on Linux servers.
 It makes it easier to deploy the project on a Linux server.

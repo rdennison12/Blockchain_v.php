@@ -1,0 +1,33 @@
+{% extends 'layouts/base.twig' %}
+{% set active_page = 'home' %}
+
+{% block content %}
+    <section class="mb-5">
+        <p class="text-primary fw-bold text-uppercase small">A simple ledger explorer</p>
+        <h1 class="display-5 fw-bold">{{ title }}</h1>
+        <p class="lead text-body-secondary">Explore the blocks in your session's blockchain. Each block links to the one before it through its hash.</p>
+        <a class="btn btn-primary" href="/blockchain/index">View chain data <span aria-hidden="true">&rarr;</span></a>
+    </section>
+    <section aria-labelledby="chain-heading">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+            <div><p class="text-primary fw-bold text-uppercase small mb-1">Your session</p><h2 id="chain-heading" class="mb-0">Blockchain</h2></div>
+            <span class="text-body-secondary small">{{ blocks|length }} {{ blocks|length == 1 ? 'block' : 'blocks' }}</span>
+        </div>
+        <div class="d-grid gap-3">
+            {% for block in blocks %}
+                <article class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2"><h3 class="h5 mb-0">Block {{ block.index }}</h3><span class="text-body-secondary small">{{ block.transactions|length }} {{ block.transactions|length == 1 ? 'transaction' : 'transactions' }}</span></div>
+                        <dl class="mt-3 mb-0">
+                            <div><dt>Hash</dt><dd class="font-monospace text-break">{{ block.hash }}</dd></div>
+                            <div><dt>Previous hash</dt><dd class="font-monospace text-break">{{ block.previousHash }}</dd></div>
+                            <div><dt>Nonce</dt><dd>{{ block.nonce }}</dd></div>
+                        </dl>
+                    </div>
+                </article>
+            {% else %}
+                <p>No blocks are available in this session.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

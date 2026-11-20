@@ -74,7 +74,7 @@ class Error
 
             error_log($message);
 
-            View::render("Errors/$code.php", ['title' => "$code - Error"]);
+            View::render("Errors/$code.twig", ['title' => "$code - Error"]);
         }
     }
 }
