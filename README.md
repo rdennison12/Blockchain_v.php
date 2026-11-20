@@ -34,7 +34,7 @@ This is an unsigned educational ledger, not a secure cryptocurrency: addresses a
 * Moving project to Linux for now, working to get Composer installed on Windows
 * Installed Composer on Windows, working out the bugs
 * Installed Composer on Windows
-* Updated all views and necessary files to use Twig templating engine
+* Updated all views and necessary files to use Twig templating engine 
 
 In the folder structure, I named the public folder public_html as that is the standard on Linux servers.
 It makes it easier to deploy the project on a Linux server.
