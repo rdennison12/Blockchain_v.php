@@ -1,12 +1,7 @@
 <?php
 declare(strict_types=1);
 
-spl_autoload_register(function (string $class): void {
-    $file = dirname(__DIR__) . '/' . str_replace('\\', '/', $class) . '.php';
-    if (is_file($file)) {
-        require $file;
-    }
-});
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use App\Models\Blockchain;
 

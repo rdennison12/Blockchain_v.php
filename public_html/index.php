@@ -14,12 +14,7 @@ declare(strict_types=1);
 
 define('ROOT_DIR', dirname(__DIR__));
 
-spl_autoload_register(function (string $class): void {
-    $file = ROOT_DIR . '/' . str_replace('\\', '/', $class) . '.php';
-    if (file_exists($file)) {
-        require_once $file;
-    }
-});
+require ROOT_DIR . '/vendor/autoload.php';
 
 /**
  * Error and exception handling
