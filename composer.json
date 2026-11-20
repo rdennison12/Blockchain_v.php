@@ -13,6 +13,6 @@
         }
     },
     "scripts": {
-        "test": "@php tests/blockchain.php"
+        "test": ["@php tests/blockchain.php", "@php tests/views.php"]
     }
 }
